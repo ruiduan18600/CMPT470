@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Takehome-q3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div  >Select country
+    <select id="countrySelect">
+    </select>
+    <p id="demo"></p>
+    </div>
+</body>
+<footer>
+    <script>
+        var countries = [
+         { code: "AR", name: "Argentina", capital: "Buenos Aires" },
+         { code: "AT", name: "Austria", capital: "Vienna" },
+         { code: "BE", name: "Belgium", capital: "Brussels" },
+         { code: "CA", name: "Canada", capital: "Ottawa" }
+        ];
+        var select = document.getElementById("countrySelect");
+        for (var i=0; i <countries.length; i++)
+        {
+            var curr_country = countries[i];
+            var el = document.createElement("option");
+            el.textContent = curr_country.name;
+            el.value = curr_country.code;
+            select.appendChild(el);
+        }
+        select.onchange = function() {
+            var x = document.getElementById("countrySelect");
+            for(var i=0; i <countries.length; i++){
+                if(x.value == countries[i].code){
+                    var y = countries[i].capital;
+                }
+            }
+            document.getElementById("demo").innerHTML = "You selected: " + y;
+        }
+        
+        </script>
+</footer>
+</html>
